@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # servo
 
 > My delightful Nuxt.js project
@@ -20,3 +21,6 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+=======
+# 7omServo
+>>>>>>> 56abcf41b0460c0a843e390751a7b7969f7642fb
