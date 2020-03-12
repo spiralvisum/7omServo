@@ -5,6 +5,46 @@ $primary:       #7D61C8 ;
 $secondary:     #ffffff ;
 $light:         #f1f1f1 ;
 $dark:          #000000 ;//then bootstrap & bootstrap-vue should be added after 
+$spacer: 1rem !default;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .5),
+    2: ($spacer * 1),
+    3: $spacer,
+    4: ($spacer * 3),
+    5: ($spacer * 6),
+    6: ($spacer * 9)
+  ),
+  $spacers
+);
+$white: #FFF;
+$carousel-control-color:             $white !default;
+$carousel-control-width:             15% !default;
+$carousel-control-opacity:           .7 !default;
+$carousel-control-hover-opacity:     .9 !default;
+$carousel-control-transition:        opacity .15s ease !default;
+
+$carousel-indicator-width:           30px !default;
+$carousel-indicator-height:          3px !default;
+$carousel-indicator-hit-area-height: 10px !default;
+$carousel-indicator-spacer:          3px !default;
+$carousel-indicator-active-bg:       $white !default;
+$carousel-indicator-transition:      opacity .6s ease !default;
+
+$carousel-caption-width:             70% !default;
+$carousel-caption-color:             $white !default;
+
+$carousel-control-icon-width:        50% !default;
+
+$carousel-control-prev-icon-bg:      url("~assets/orangearrowleft.png") !default;
+$carousel-control-next-icon-bg:      url("~assets/orangearrowright.png") !default;
+
+$carousel-transition-duration:       .6s !default;
+$carousel-transition:                transform $carousel-transition-duration ease-in-out !default; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
+
 //so that they inherit the custom SCSS variables
 @import 'bootstrap/scss/bootstrap.scss';
 @import 'bootstrap-vue/src/index.scss';
