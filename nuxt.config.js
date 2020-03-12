@@ -24,7 +24,8 @@ module.exports = {
   */
   css: [
     './assets/scss/custom.scss',
-    '@fortawesome/fontawesome-svg-core/styles.css'
+    '@fortawesome/fontawesome-svg-core/styles.css',
+    'aos/dist/aos.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -78,6 +79,9 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+   /**
+     * add external plugins
+     */
     extend (config, ctx) {
     }
   }
