@@ -1,4 +1,4 @@
-
+const webpack = require("webpack")
 module.exports = {
   mode: 'universal',
   /*
@@ -79,6 +79,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+   allChunks: true,
    /**
      * add external plugins
      */
