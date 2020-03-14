@@ -9,7 +9,7 @@
             header="Adjustable Variables"
             align="center"
           >
-            <b-row align-h="center" v-for="(item, key) in fields" :key="key" class="my-1 px-2">
+            <b-row v-for="(item, key) in fields" :key="key" class="my-1 px-2" align-h="center">
               <b-input-group v-if="item.prepend" :prepend="item.prepend" :append="item.label" class="mb-2">
                 <b-form-input
                   :id="key + _uid"
@@ -74,8 +74,8 @@
             </b-list-group>
           </b-card>
         </b-col>
-        <b-col col="6">
-         <b-card
+        <b-col cols="6">
+          <b-card
             border-variant="primary"
             header="10% Increase"
             header-bg-variant="primary"
@@ -94,8 +94,8 @@
         </b-col>
       </b-row>
       <b-row class="my-3">
-        <b-col col="6">
-         <b-card
+        <b-col cols="6">
+          <b-card
             border-variant="primary"
             header="20% Increase"
             header-bg-variant="primary"
@@ -112,8 +112,8 @@
             </b-list-group>
           </b-card>
         </b-col>
-        <b-col col="6">
-         <b-card
+        <b-col cols="6">
+          <b-card
             border-variant="primary"
             header="30% Increase"
             header-bg-variant="primary"
