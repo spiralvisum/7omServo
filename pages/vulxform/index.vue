@@ -52,11 +52,11 @@
           </b-card>
         </b-col>
       </b-row>
-      <h1>
+      <h1 class="my-2">
         Increases Account for Vulx Cost
       </h1>
       <b-row class="my-3">
-        <b-col cols="6">
+        <b-col lg="6">
           <b-card
             border-variant="primary"
             header="5% Increase"
@@ -74,7 +74,7 @@
             </b-list-group>
           </b-card>
         </b-col>
-        <b-col cols="6">
+        <b-col lg="6">
           <b-card
             border-variant="primary"
             header="10% Increase"
@@ -94,7 +94,7 @@
         </b-col>
       </b-row>
       <b-row class="my-3">
-        <b-col cols="6">
+        <b-col lg="6">
           <b-card
             border-variant="primary"
             header="20% Increase"
@@ -112,7 +112,7 @@
             </b-list-group>
           </b-card>
         </b-col>
-        <b-col cols="6">
+        <b-col lg="6">
           <b-card
             border-variant="primary"
             header="30% Increase"
@@ -131,9 +131,85 @@
           </b-card>
         </b-col>
       </b-row>
-      <h1>
-        Increases Account for Vulx Cost
+      <h1 class="my-2">
+        Revenue Increase Multiple Harvests
       </h1>
+      <b-row class="my-3">
+        <b-col lg="6">
+          <b-card
+            border-variant="primary"
+            header="5% Increase"
+            header-bg-variant="primary"
+            header-text-variant="white"
+            align="center"
+          >
+            <b-list-group flush>
+              <b-list-group-item v-for="(item, key) in revFive" :key="key">
+                {{ item.label }}
+                <b-badge v-if="item.prepend" variant="primary" pill>
+                  {{ item.prepend }} {{ item.value }}
+                </b-badge>
+              </b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </b-col>
+        <b-col lg="6">
+          <b-card
+            border-variant="primary"
+            header="10% Increase"
+            header-bg-variant="primary"
+            header-text-variant="white"
+            align="center"
+          >
+            <b-list-group flush>
+              <b-list-group-item v-for="(item, key) in revTen" :key="key">
+                {{ item.label }}
+                <b-badge v-if="item.prepend" variant="primary" pill>
+                  {{ item.prepend }} {{ item.value }}
+                </b-badge>
+              </b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </b-col>
+      </b-row>
+      <b-row class="my-3">
+        <b-col lg="6">
+          <b-card
+            border-variant="primary"
+            header="20% Increase"
+            header-bg-variant="primary"
+            header-text-variant="white"
+            align="center"
+          >
+            <b-list-group flush>
+              <b-list-group-item v-for="(item, key) in revTwenty" :key="key">
+                {{ item.label }}
+                <b-badge v-if="item.prepend" variant="primary" pill>
+                  {{ item.prepend }} {{ item.value }}
+                </b-badge>
+              </b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </b-col>
+        <b-col lg="6">
+          <b-card
+            border-variant="primary"
+            header="30% Increase"
+            header-bg-variant="primary"
+            header-text-variant="white"
+            align="center"
+          >
+            <b-list-group flush>
+              <b-list-group-item v-for="(item, key) in revThirty" :key="key">
+                {{ item.label }}
+                <b-badge v-if="item.prepend" variant="primary" pill>
+                  {{ item.prepend }} {{ item.value }}
+                </b-badge>
+              </b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </b-col>
+      </b-row>
       <b-btn class="calculator-button" @click="getResult">
         Crackulate
       </b-btn>
@@ -333,6 +409,74 @@ export default {
           prepend: '$'
         }
       },
+      revFive: {
+        oneHarvest: {
+          label: '1 Harvest',
+          value: '0',
+          prepend: '$'
+        },
+        twoHarvest: {
+          label: '2 Harvests',
+          value: '0',
+          prepend: '$'
+        },
+        threeHarvest: {
+          label: '3 Harvests',
+          value: '0',
+          prepend: '$'
+        }
+      },
+      revTen: {
+        oneHarvest: {
+          label: '1 Harvest',
+          value: '0',
+          prepend: '$'
+        },
+        twoHarvest: {
+          label: '2 Harvests',
+          value: '0',
+          prepend: '$'
+        },
+        threeHarvest: {
+          label: '3 Harvests',
+          value: '0',
+          prepend: '$'
+        }
+      },
+      revTwenty: {
+        oneHarvest: {
+          label: '1 Harvest',
+          value: '0',
+          prepend: '$'
+        },
+        twoHarvest: {
+          label: '2 Harvests',
+          value: '0',
+          prepend: '$'
+        },
+        threeHarvest: {
+          label: '3 Harvests',
+          value: '0',
+          prepend: '$'
+        }
+      },
+      revThirty: {
+        oneHarvest: {
+          label: '1 Harvest',
+          value: '0',
+          prepend: '$'
+        },
+        twoHarvest: {
+          label: '2 Harvests',
+          value: '0',
+          prepend: '$'
+        },
+        threeHarvest: {
+          label: '3 Harvests',
+          value: '0',
+          prepend: '$'
+        }
+      },
       formData: {}
     }
   },
@@ -357,6 +501,22 @@ export default {
       this.increaseThirty.incSellWeightPR.value = (this.schema.sellWeightRoom.value * 0.3).toFixed(5)
       this.increaseThirty.incRevPP.value = ((this.increaseThirty.incSellWeightPP.value * (this.fields.perPound.value / 454)) - this.schema.vulxCPP.value).toFixed(2)
       this.increaseThirty.incRevPR.value = (this.increaseThirty.incRevPP.value * this.fields.numPots.value).toFixed(2)
+
+      this.revFive.oneHarvest.value = (this.increaseFive.incRevPR.value)
+      this.revFive.twoHarvest.value = (Number(this.revFive.oneHarvest.value) + (this.increaseFive.incSellWeightPP.value * (this.fields.perPound.value / 454) * this.fields.numPots.value)).toFixed(2)
+      this.revFive.threeHarvest.value = (Number(this.revFive.oneHarvest.value) + (this.increaseFive.incSellWeightPP.value * (this.fields.perPound.value / 454) * this.fields.numPots.value * 2)).toFixed(2)
+
+      this.revTen.oneHarvest.value = (this.increaseTen.incRevPR.value)
+      this.revTen.twoHarvest.value = (Number(this.revTen.oneHarvest.value) + (this.increaseTen.incSellWeightPP.value * (this.fields.perPound.value / 454) * this.fields.numPots.value)).toFixed(2)
+      this.revTen.threeHarvest.value = (Number(this.revTen.oneHarvest.value) + (this.increaseTen.incSellWeightPP.value * (this.fields.perPound.value / 454) * this.fields.numPots.value * 2)).toFixed(2)
+
+      this.revTwenty.oneHarvest.value = (this.increaseTwenty.incRevPR.value)
+      this.revTwenty.twoHarvest.value = (Number(this.revTwenty.oneHarvest.value) + (this.increaseTwenty.incSellWeightPP.value * (this.fields.perPound.value / 454) * this.fields.numPots.value)).toFixed(2)
+      this.revTwenty.threeHarvest.value = (Number(this.revTwenty.oneHarvest.value) + (this.increaseTwenty.incSellWeightPP.value * (this.fields.perPound.value / 454) * this.fields.numPots.value * 2)).toFixed(2)
+
+      this.revThirty.oneHarvest.value = (this.increaseThirty.incRevPR.value)
+      this.revThirty.twoHarvest.value = (Number(this.revThirty.oneHarvest.value) + (this.increaseTwenty.incSellWeightPP.value * (this.fields.perPound.value / 454) * this.fields.numPots.value)).toFixed(2)
+      this.revThirty.threeHarvest.value = (Number(this.revThirty.oneHarvest.value) + (this.increaseTwenty.incSellWeightPP.value * (this.fields.perPound.value / 454) * this.fields.numPots.value * 2)).toFixed(2)
     },
     updateSellWeight () {
       this.schema.sellWeightRoom.value = (this.fields.sellWeightPot.value * 0.00220462 * this.fields.numPots.value).toFixed(2)
