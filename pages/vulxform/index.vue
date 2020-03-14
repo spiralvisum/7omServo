@@ -52,6 +52,9 @@
           </b-card>
         </b-col>
       </b-row>
+      <b-btn block variant="primary" class="calculator-button my-5" @click="getResult">
+        Calculate Now!
+      </b-btn>
       <h1 class="my-2">
         Increases Account for Vulx Cost
       </h1>
@@ -210,19 +213,16 @@
           </b-card>
         </b-col>
       </b-row>
-      <b-btn class="calculator-button" @click="getResult">
-        Crackulate
-      </b-btn>
     </b-container>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
-import { BootstrapVue, FormInputPlugin, LayoutPlugin, CardPlugin, InputGroupPlugin } from 'bootstrap-vue'
+import { BootstrapVue, FormInputPlugin, LayoutPlugin, CardPlugin, InputGroupPlugin, ButtonPlugin } from 'bootstrap-vue'
 import Servonav from '@/components/Servonav'
 
-Vue.use(BootstrapVue, FormInputPlugin, LayoutPlugin, CardPlugin, InputGroupPlugin)
+Vue.use(BootstrapVue, FormInputPlugin, LayoutPlugin, CardPlugin, InputGroupPlugin, ButtonPlugin)
 
 export default {
   components: {
