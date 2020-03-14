@@ -52,15 +52,91 @@
           </b-card>
         </b-col>
       </b-row>
-      <b-row align-h="center" class="mx-3">
-        <b-card-group deck>
+      <h1>
+        Increases Account for Vulx Cost
+      </h1>
+      <b-row class="my-3">
+        <b-col cols="6">
           <b-card
-            border-variant="dark"
-            header="Increases Account for Vulx Cost"
+            border-variant="primary"
+            header="5% Increase"
+            header-bg-variant="primary"
+            header-text-variant="white"
+            align="center"
           >
+            <b-list-group flush>
+              <b-list-group-item v-for="(item, key) in increaseFive" :key="key">
+                {{ item.label }}
+                <b-badge v-if="item.prepend" variant="primary" pill>
+                  {{ item.prepend }} {{ item.value }}
+                </b-badge>
+              </b-list-group-item>
+            </b-list-group>
           </b-card>
-        </b-card-group>
+        </b-col>
+        <b-col col="6">
+         <b-card
+            border-variant="primary"
+            header="10% Increase"
+            header-bg-variant="primary"
+            header-text-variant="white"
+            align="center"
+          >
+            <b-list-group flush>
+              <b-list-group-item v-for="(item, key) in increaseTen" :key="key">
+                {{ item.label }}
+                <b-badge v-if="item.prepend" variant="primary" pill>
+                  {{ item.prepend }} {{ item.value }}
+                </b-badge>
+              </b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </b-col>
       </b-row>
+      <b-row class="my-3">
+        <b-col col="6">
+         <b-card
+            border-variant="primary"
+            header="20% Increase"
+            header-bg-variant="primary"
+            header-text-variant="white"
+            align="center"
+          >
+            <b-list-group flush>
+              <b-list-group-item v-for="(item, key) in increaseTwenty" :key="key">
+                {{ item.label }}
+                <b-badge v-if="item.prepend" variant="primary" pill>
+                  {{ item.prepend }} {{ item.value }}
+                </b-badge>
+              </b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </b-col>
+        <b-col col="6">
+         <b-card
+            border-variant="primary"
+            header="30% Increase"
+            header-bg-variant="primary"
+            header-text-variant="white"
+            align="center"
+          >
+            <b-list-group flush>
+              <b-list-group-item v-for="(item, key) in increaseThirty" :key="key">
+                {{ item.label }}
+                <b-badge v-if="item.prepend" variant="primary" pill>
+                  {{ item.prepend }} {{ item.value }}
+                </b-badge>
+              </b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </b-col>
+      </b-row>
+      <h1>
+        Increases Account for Vulx Cost
+      </h1>
+      <b-btn class="calculator-button" @click="getResult">
+        Crackulate
+      </b-btn>
     </b-container>
   </div>
 </template>
@@ -169,12 +245,118 @@ export default {
           value: ((7.14 / (1200 / 454)) / 70) * 100
         }
       },
+      increaseFive: {
+        incSellWeightPP: {
+          label: 'Increased Sell Weight per Pot',
+          value: '0',
+          prepend: '(g)'
+        },
+        incSellWeightPR: {
+          label: 'Increased Sell Weight per Room',
+          value: '0',
+          prepend: '(lbs)'
+        },
+        incRevPP: {
+          label: 'Increased Revenue per Pot',
+          value: '0',
+          prepend: '$'
+        },
+        incRevPR: {
+          label: 'Increased Revenue per Room',
+          value: '0',
+          prepend: '$'
+        }
+      },
+      increaseTen: {
+        incSellWeightPP: {
+          label: 'Increased Sell Weight per Pot',
+          value: '0',
+          prepend: '(g)'
+        },
+        incSellWeightPR: {
+          label: 'Increased Sell Weight per Room',
+          value: '0',
+          prepend: '(lbs)'
+        },
+        incRevPP: {
+          label: 'Increased Revenue per Pot',
+          value: '0',
+          prepend: '$'
+        },
+        incRevPR: {
+          label: 'Increased Revenue per Room',
+          value: '0',
+          prepend: '$'
+        }
+      },
+      increaseTwenty: {
+        incSellWeightPP: {
+          label: 'Increased Sell Weight per Pot',
+          value: '0',
+          prepend: '(g)'
+        },
+        incSellWeightPR: {
+          label: 'Increased Sell Weight per Room',
+          value: '0',
+          prepend: '(lbs)'
+        },
+        incRevPP: {
+          label: 'Increased Revenue per Pot',
+          value: '0',
+          prepend: '$'
+        },
+        incRevPR: {
+          label: 'Increased Revenue per Room',
+          value: '0',
+          prepend: '$'
+        }
+      },
+      increaseThirty: {
+        incSellWeightPP: {
+          label: 'Increased Sell Weight per Pot',
+          value: '0',
+          prepend: '(g)'
+        },
+        incSellWeightPR: {
+          label: 'Increased Sell Weight per Room',
+          value: '0',
+          prepend: '(lbs)'
+        },
+        incRevPP: {
+          label: 'Increased Revenue per Pot',
+          value: '0',
+          prepend: '$'
+        },
+        incRevPR: {
+          label: 'Increased Revenue per Room',
+          value: '0',
+          prepend: '$'
+        }
+      },
       formData: {}
     }
   },
   methods: {
     getResult () {
-      alert('cannot crackulate anything yet, page not finished')
+      this.increaseFive.incSellWeightPP.value = this.fields.sellWeightPot.value * 0.05
+      this.increaseFive.incSellWeightPR.value = (this.schema.sellWeightRoom.value * 0.05).toFixed(5)
+      this.increaseFive.incRevPP.value = ((this.increaseFive.incSellWeightPP.value * (this.fields.perPound.value / 454)) - this.schema.vulxCPP.value).toFixed(2)
+      this.increaseFive.incRevPR.value = (this.increaseFive.incRevPP.value * this.fields.numPots.value).toFixed(2)
+
+      this.increaseTen.incSellWeightPP.value = this.fields.sellWeightPot.value * 0.1
+      this.increaseTen.incSellWeightPR.value = (this.schema.sellWeightRoom.value * 0.1).toFixed(5)
+      this.increaseTen.incRevPP.value = ((this.increaseTen.incSellWeightPP.value * (this.fields.perPound.value / 454)) - this.schema.vulxCPP.value).toFixed(2)
+      this.increaseTen.incRevPR.value = (this.increaseTen.incRevPP.value * this.fields.numPots.value).toFixed(2)
+
+      this.increaseTwenty.incSellWeightPP.value = this.fields.sellWeightPot.value * 0.2
+      this.increaseTwenty.incSellWeightPR.value = (this.schema.sellWeightRoom.value * 0.2).toFixed(5)
+      this.increaseTwenty.incRevPP.value = ((this.increaseTwenty.incSellWeightPP.value * (this.fields.perPound.value / 454)) - this.schema.vulxCPP.value).toFixed(2)
+      this.increaseTwenty.incRevPR.value = (this.increaseTwenty.incRevPP.value * this.fields.numPots.value).toFixed(2)
+
+      this.increaseThirty.incSellWeightPP.value = this.fields.sellWeightPot.value * 0.3
+      this.increaseThirty.incSellWeightPR.value = (this.schema.sellWeightRoom.value * 0.3).toFixed(5)
+      this.increaseThirty.incRevPP.value = ((this.increaseThirty.incSellWeightPP.value * (this.fields.perPound.value / 454)) - this.schema.vulxCPP.value).toFixed(2)
+      this.increaseThirty.incRevPR.value = (this.increaseThirty.incRevPP.value * this.fields.numPots.value).toFixed(2)
     },
     updateSellWeight () {
       this.schema.sellWeightRoom.value = (this.fields.sellWeightPot.value * 0.00220462 * this.fields.numPots.value).toFixed(2)
