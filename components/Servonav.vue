@@ -13,7 +13,10 @@
             Vulx
           </b-nav-item>
           <b-nav-item :to="'/vulxform'">
-            Vulx-Cacluator
+            Vulx-Cacluator (Pots)
+          </b-nav-item>
+          <b-nav-item :to="'/vulxform2'">
+            Vulx-Cacluator (Beds)
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
