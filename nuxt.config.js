@@ -74,12 +74,19 @@ module.exports = {
   },
   /*
   ** Build configuration
+  router: {
+  base: '/mobile/'
+},
   */
+
   build: {
     /*
     ** You can extend webpack config here
     */
-   allChunks: true,
+   
+   extractCSS: {
+    allChunks: true
+  },
    /**
      * add external plugins
      */

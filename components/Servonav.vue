@@ -18,6 +18,9 @@
           <b-nav-item :to="'/vulxform2'">
             Vulx-Cacluator (Beds)
           </b-nav-item>
+          <b-nav-item :to="'/navtest'">
+            Navigation Dev
+          </b-nav-item>          
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
